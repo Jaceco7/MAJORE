@@ -1,0 +1,673 @@
+<!doctype html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0"
+    >
+
+    <title>MAJORE | Bolsos</title>
+
+    <!-- FUENTES -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ESTILOS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- ==================================================
+         ANUNCIO SUPERIOR
+    =================================================== -->
+
+    <div class="announcement">
+        ENVÍOS A TODA COLOMBIA · COMPRA SEGURA · NUEVA COLECCIÓN
+    </div>
+
+
+    <!-- ==================================================
+         HEADER / NAVEGACIÓN
+    =================================================== -->
+
+    <header>
+
+        <a
+            class="logo"
+            href="#inicio"
+        >
+            MAJORE
+        </a>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#catalogo">
+                Colección
+            </a>
+
+            <a href="#nosotros">
+                Nosotros
+            </a>
+
+        </nav>
+
+
+        <div class="actions">
+
+            <button
+                id="searchBtn"
+                aria-label="Buscar"
+            >
+                ⌕
+            </button>
+
+
+            <button
+                id="favBtn"
+                aria-label="Favoritos"
+            >
+                ♡
+                <span id="favCount">
+                    0
+                </span>
+            </button>
+
+
+            <button
+                id="cartBtn"
+                aria-label="Carrito"
+            >
+                Bolsa
+                <span id="cartCount">
+                    0
+                </span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+         CONTENIDO PRINCIPAL
+    =================================================== -->
+
+    <main>
+
+
+        <!-- ==============================================
+             HERO / INICIO
+        =============================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="heroText">
+
+                <p class="eyebrow">
+                    NUEVA COLECCIÓN 2026
+                </p>
+
+                <h1>
+                    Tu estilo.
+                    <br>
+                    <em>Tu MAJORE.</em>
+                </h1>
+
+                <p>
+                    Bolsos creados para acompañarte todos los días.
+                    Diseño, personalidad y detalles que hacen la diferencia.
+                </p>
+
+                <a
+                    href="#catalogo"
+                    class="primary"
+                >
+                    DESCUBRIR COLECCIÓN →
+                </a>
+
+            </div>
+
+
+            <div class="heroImage">
+
+                <img
+                    src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=85"
+                    alt="Bolso MAJORE"
+                >
+
+                <span>
+                    01 / 06
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================================
+             BENEFICIOS
+        =============================================== -->
+
+        <section class="benefits">
+
+            <div>
+
+                <b>
+                    ✦ ENVÍOS NACIONALES
+                </b>
+
+                <small>
+                    A toda Colombia
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    ◇ PAGO SEGURO
+                </b>
+
+                <small>
+                    Compra con tranquilidad
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <b>
+                    ↻ CAMBIOS FÁCILES
+                </b>
+
+                <small>
+                    Consulta nuestras políticas
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================================
+             CATÁLOGO
+        =============================================== -->
+
+        <section
+            class="shop"
+            id="catalogo"
+        >
+
+            <!-- ENCABEZADO DEL CATÁLOGO -->
+
+            <div class="sectionHead">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ENCUENTRA EL TUYO
+                    </p>
+
+                    <h2>
+                        Nuestra colección
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Diseños seleccionados para elevar cada look.
+                </p>
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="toolbar">
+
+                <div class="chips">
+
+                    <button
+                        class="chip active"
+                        data-category="Todos"
+                    >
+                        Todos
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        data-category="Tote"
+                    >
+                        Tote
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        data-category="Crossbody"
+                    >
+                        Crossbody
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        data-category="Mini"
+                    >
+                        Mini
+                    </button>
+
+
+                    <button
+                        class="chip"
+                        data-category="Clásico"
+                    >
+                        Clásicos
+                    </button>
+
+                </div>
+
+
+                <!-- ORDENAR PRODUCTOS -->
+
+                <select id="sort">
+
+                    <option value="featured">
+                        Destacados
+                    </option>
+
+                    <option value="low">
+                        Menor precio
+                    </option>
+
+                    <option value="high">
+                        Mayor precio
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PRODUCTOS GENERADOS POR JAVASCRIPT -->
+
+            <div
+                id="productGrid"
+                class="grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ==============================================
+             BANNER SIGNATURE
+        =============================================== -->
+
+        <section class="banner">
+
+            <div>
+
+                <p class="eyebrow">
+                    MAJORE SIGNATURE
+                </p>
+
+                <h2>
+                    Diseñado para
+                    <br>
+                    ser inolvidable.
+                </h2>
+
+                <p>
+                    Una colección que combina líneas limpias,
+                    tonos atemporales y carácter.
+                </p>
+
+                <a
+                    href="#catalogo"
+                    class="lightBtn"
+                >
+                    VER SIGNATURE →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================================
+             NOSOTROS
+        =============================================== -->
+
+        <section
+            class="about"
+            id="nosotros"
+        >
+
+            <div>
+
+                <p class="eyebrow">
+                    NUESTRA ESENCIA
+                </p>
+
+                <h2>
+                    Más que un bolso,
+                    <br>
+                    una declaración.
+                </h2>
+
+            </div>
+
+
+            <p>
+                En MAJORE creemos que los accesorios cuentan historias.
+                Seleccionamos piezas versátiles y elegantes pensadas
+                para acompañar tu ritmo y expresar tu estilo.
+            </p>
+
+        </section>
+
+
+        <!-- ==============================================
+             NEWSLETTER
+        =============================================== -->
+
+        <section class="newsletter">
+
+            <p class="eyebrow">
+                ÚNETE A MAJORE
+            </p>
+
+            <h2>
+                Entérate antes que nadie.
+            </h2>
+
+            <p>
+                Nuevos lanzamientos, descuentos y colecciones especiales.
+            </p>
+
+
+            <form id="newsletter">
+
+                <input
+                    type="email"
+                    placeholder="Tu correo electrónico"
+                    required
+                >
+
+                <button>
+                    QUIERO UNIRME →
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    <footer>
+
+        <!-- MARCA -->
+
+        <div>
+
+            <a
+                class="logo light"
+                href="#"
+            >
+                MAJORE
+            </a>
+
+            <p>
+                Elegancia que llevas contigo.
+            </p>
+
+        </div>
+
+
+        <!-- TIENDA -->
+
+        <div>
+
+            <b>
+                TIENDA
+            </b>
+
+            <a href="#catalogo">
+                Nueva colección
+            </a>
+
+            <a href="#catalogo">
+                Más vendidos
+            </a>
+
+            <a href="#catalogo">
+                Todos los bolsos
+            </a>
+
+        </div>
+
+
+        <!-- AYUDA -->
+
+        <div>
+
+            <b>
+                AYUDA
+            </b>
+
+            <a href="#">
+                Envíos
+            </a>
+
+            <a href="#">
+                Cambios
+            </a>
+
+            <a href="#">
+                Contacto
+            </a>
+
+        </div>
+
+
+        <!-- REDES -->
+
+        <div>
+
+            <b>
+                SÍGUENOS
+            </b>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                TikTok
+            </a>
+
+            <a href="#">
+                WhatsApp
+            </a>
+
+        </div>
+
+
+        <small>
+            © 2026 MAJORE. Todos los derechos reservados.
+        </small>
+
+    </footer>
+
+
+    <!-- ==================================================
+         OVERLAY
+    =================================================== -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+    <!-- ==================================================
+         CARRITO / BOLSA
+    =================================================== -->
+
+    <aside
+        class="drawer"
+        id="cartDrawer"
+    >
+
+        <div class="drawerHead">
+
+            <h3>
+                Tu bolsa
+            </h3>
+
+            <button class="close">
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTOS DEL CARRITO -->
+
+        <div id="cartItems"></div>
+
+
+        <!-- TOTAL DEL CARRITO -->
+
+        <div class="cartBottom">
+
+            <div>
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <button id="checkout">
+                FINALIZAR POR WHATSAPP →
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================================================
+         BUSCADOR
+    =================================================== -->
+
+    <div
+        class="searchPanel"
+        id="searchPanel"
+    >
+
+        <button class="close">
+            ×
+        </button>
+
+
+        <p class="eyebrow">
+            BUSCAR EN MAJORE
+        </p>
+
+
+        <input
+            id="searchInput"
+            placeholder="¿Qué estás buscando?"
+            autofocus
+        >
+
+
+        <div id="searchResults"></div>
+
+    </div>
+
+
+    <!-- ==================================================
+         MODAL DEL PRODUCTO
+    =================================================== -->
+
+    <div
+        class="modal"
+        id="productModal"
+    >
+
+        <button class="close modalClose">
+            ×
+        </button>
+
+
+        <div id="modalContent"></div>
+
+    </div>
+
+
+    <!-- ==================================================
+         NOTIFICACIONES
+    =================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
