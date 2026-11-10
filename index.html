@@ -34,10 +34,29 @@
         rel="stylesheet"
         href="style.css"
     >
+    <!-- Acceso Cognito: oculta la tienda hasta confirmar la sesión -->
+    <style>
+        html:not(.autenticado) body > :not(#auth-loading) { visibility: hidden; }
+        #auth-loading {
+            position: fixed; inset: 0; z-index: 99999;
+            display: grid; place-items: center;
+            background: #f8f1ec; color: #412b32;
+            font: 500 16px/1.6 Arial, sans-serif;
+            text-align: center; padding: 24px;
+        }
+        html.autenticado #auth-loading { display: none; }
+        #cerrar-sesion {
+            border: 1px solid currentColor; background: transparent;
+            color: inherit; border-radius: 8px; padding: 8px 12px;
+            cursor: pointer; font: inherit; font-size: 12px;
+        }
+        #cerrar-sesion[hidden] { display: none; }
+    </style>
 </head>
 
 
 <body>
+    <div id="auth-loading" role="status" aria-live="polite">Verificando tu sesión de MAJORE...</div>
 
     <!-- ==================================================
          ANUNCIO SUPERIOR
@@ -80,6 +99,8 @@
 
 
         <div class="actions">
+            <button id="cerrar-sesion" type="button" hidden>Cerrar sesión</button>
+
 
             <button
                 id="searchBtn"
@@ -666,7 +687,8 @@
          JAVASCRIPT
     =================================================== -->
 
-    <script src="script.js"></script>
+    <script type="module" src="/script.js"></script>
+    <script type="module" src="/login.js"></script>
 
 </body>
 
