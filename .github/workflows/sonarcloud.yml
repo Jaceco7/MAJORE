@@ -1,5 +1,5 @@
 
-name: Analisis SonarQube MAJORE
+name: SonarQube MAJORE
 
 on:
   push:
@@ -12,22 +12,22 @@ permissions:
 
 jobs:
   sonarqube:
-    name: Analizar codigo MAJORE
+    name: Analizar MAJORE
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar repositorio
+      - name: Descargar codigo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Analizar con SonarQube Cloud
+      - name: Analisis SonarQube Cloud
         uses: SonarSource/sonarqube-scan-action@v8.3.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
             -Dsonar.projectKey=Jaceco7_MAJORE
-            -Dsonar.organization=REEMPLAZAR_CLAVE_ORGANIZACION
+            -Dsonar.organization=CLAVE_DE_TU_ORGANIZACION
             -Dsonar.sources=.
             -Dsonar.exclusions=dist/**,node_modules/**
