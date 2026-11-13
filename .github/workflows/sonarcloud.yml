@@ -28,6 +28,6 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=Jaceco7_MAJORE
-            -Dsonar.organization=CLAVE_DE_TU_ORGANIZACION
+            -Dsonar.organization=jaceco7
             -Dsonar.sources=.
             -Dsonar.exclusions=dist/**,node_modules/**
