@@ -1,3 +1,4 @@
+import { obtenerToken } from "./auth.js";
 const products=[
 {id:1,name:'REF. ANDRY',cat:'Tote',price:60000,badge:'NUEVO',img:'img/ANDRY.jpg',desc:'Bolso tote amplio y elegante, ideal para acompañarte del trabajo a una salida especial.'},
 {id:2,name:'REF. KAROL',cat:'Crossbody',price:65000,badge:'BEST SELLER',img:'img/KAROL.jpg',desc:'Diseño compacto con correa ajustable y un estilo limpio que combina con todo.'},
@@ -24,3 +25,37 @@ document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelec
 $('#searchInput').oninput=e=>{let q=e.target.value.toLowerCase().trim();$('#searchResults').innerHTML=q?products.filter(p=>(p.name+p.cat).toLowerCase().includes(q)).map(p=>`<div class='searchResult' onclick='closeAll();detail(${p.id})'><img src='${p.img}'><div><b>${p.name}</b><br><small>${money(p.price)}</small></div></div>`).join(''):''};
 $('#checkout').onclick=()=>{if(!cart.length)return toast('Tu bolsa está vacía');let lines=cart.map(i=>{let p=products.find(x=>x.id===i.id);return `• ${p.name} x${i.qty} - ${money(p.price*i.qty)}`}).join('\n');let total=cart.reduce((a,i)=>a+products.find(p=>p.id===i.id).price*i.qty,0);let msg=`Hola MAJORE, quiero realizar este pedido:\n\n${lines}\n\nTotal: ${money(total)}`;window.open(`https://wa.me/573053758779?text=${encodeURIComponent(msg)}`,'_blank')};
 $('#newsletter').onsubmit=e=>{e.preventDefault();e.target.reset();toast('¡Bienvenida a MAJORE!')};save();render();renderCart();
+
+async function probarConexionDynamoDB() {
+  try {
+    const token = await obtenerToken();
+
+    if (!token) {
+      console.error("No hay token de Cognito");
+      return;
+    }
+
+    const respuesta = await fetch(
+      "https://3lbgmgbknc.execute-api.us-east-1.amazonaws.com/productos",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error(`Error HTTP: ${respuesta.status}`);
+    }
+
+    const productos = await respuesta.json();
+
+    console.log("Productos de DynamoDB:", productos);
+    console.log("Total de productos:", productos.length);
+
+  } catch (error) {
+    console.error("Error de conexión:", error);
+  }
+}
+
+window.probarConexionDynamoDB = probarConexionDynamoDB;

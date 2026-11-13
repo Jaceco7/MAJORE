@@ -1,5 +1,5 @@
 import { Amplify } from 'aws-amplify';
-import 'aws-amplify/auth/enable-oauth-listener';
+
 import { getCurrentUser, signInWithRedirect, signOut, fetchAuthSession } from 'aws-amplify/auth';
 import "aws-amplify/auth/enable-oauth-listener";
 const CLOUDFRONT = 'https://d3261u1h39xawq.cloudfront.net/';
